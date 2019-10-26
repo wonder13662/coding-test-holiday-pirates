@@ -1,10 +1,10 @@
 import React from "react";
 
-class HotelDetail extends React.Component {
+class HotelInfoDetail extends React.Component {
   render() {
     return (
       <div>
-        <h5>HotelDetail</h5>
+        <h5>HotelInfoDetail</h5>
         <button>Show Review</button>
         <div>Price</div>
         <div>Travel-period</div>
@@ -13,4 +13,4 @@ class HotelDetail extends React.Component {
   }
 }
 
-export default HotelDetail;
+export default HotelInfoDetail;

@@ -17,6 +17,23 @@ http://fake-hotel-api.herokuapp.com/
 
 ## HTML 5 Standard
 
+## Component Structure
+
+- HotelPage
+  - Header
+    - Button:"Load Hotel"
+  - Body
+    - ErrorBox:"An error occurred"
+    - HotelItemList
+      - HotelItem
+        - HotelImage
+        - HotelInfo
+          - HotelInfoHeader
+          - HotelInfoBody
+            - HotelInfoDetail
+            - HotelInfoReviewList
+              - HotelInfoReview
+
 ## Using libraries
 
 - [Create react app](https://github.com/facebook/create-react-app)
