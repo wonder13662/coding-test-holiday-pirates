@@ -1,4 +1,5 @@
 import React from "react";
+import { Button } from "semantic-ui-react";
 
 class HotelPageHeader extends React.Component {
   constructor(props) {
@@ -26,19 +27,17 @@ class HotelPageHeader extends React.Component {
   }
 
   render() {
-    const { timestampRequestHotelList } = this.props;
     const { isDisabled } = this.state;
     return (
-      <div>
-        <h3>HotelPageHeader</h3>
+      <div className="hotel-page--header-box">
         {isDisabled ? (
-          <button onClick={this.handleOnClick} disabled>
-            Load Hotel:{timestampRequestHotelList}
-          </button>
+          <Button color="teal" onClick={this.handleOnClick} disabled>
+            Load Hotel
+          </Button>
         ) : (
-          <button onClick={this.handleOnClick}>
-            Load Hotel:{timestampRequestHotelList}
-          </button>
+          <Button color="teal" onClick={this.handleOnClick}>
+            Load Hotel
+          </Button>
         )}
       </div>
     );
