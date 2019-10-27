@@ -4,11 +4,14 @@ import HotelInfo from "./HotelInfo";
 
 class HotelItem extends React.Component {
   render() {
+    const { hotelItem } = this.props;
+    const { images, name } = hotelItem;
+    const imageUrl = images[0];
     return (
-      <div>
-        <HotelImage />
-        <HotelInfo />
-      </div>
+      <li>
+        <HotelImage alt={name} imageUrl={imageUrl} />
+        <HotelInfo hotelItem={hotelItem} />
+      </li>
     );
   }
 }

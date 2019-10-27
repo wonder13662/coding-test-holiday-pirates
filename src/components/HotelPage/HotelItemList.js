@@ -5,11 +5,14 @@ import HotelItem from "../HotelItem";
 
 class HotelItemList extends React.Component {
   render() {
+    const { hotelItemList } = this.props;
+    const listItems = hotelItemList.map(hotelItem => (
+      <HotelItem key={hotelItem.id} hotelItem={hotelItem} />
+    ));
     return (
       <div>
-        <h3>HotelItemList</h3>
-        <HotelItem />
-        <HotelItem />
+        <h3>HotelItemList:{hotelItemList.length}</h3>
+        <ul>{listItems}</ul>
       </div>
     );
   }

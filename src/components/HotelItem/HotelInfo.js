@@ -4,11 +4,18 @@ import HotelInfoBody from "./HotelInfoBody";
 
 class HotelInfo extends React.Component {
   render() {
+    const { hotelItem } = this.props;
+    const { name, city, country, stars } = hotelItem;
+
     return (
       <div>
-        <h3>HotelInfo</h3>
-        <HotelInfoHeader />
-        <HotelInfoBody />
+        <HotelInfoHeader
+          name={name}
+          city={city}
+          country={country}
+          stars={stars}
+        />
+        <HotelInfoBody hotelItem={hotelItem} />
       </div>
     );
   }

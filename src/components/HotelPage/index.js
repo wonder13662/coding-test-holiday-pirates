@@ -24,8 +24,16 @@ class HotelPage extends React.Component {
       <HotelItemListContext.Provider value={this.state}>
         <div>
           <h3>HotelPage</h3>
-          <Header />
-          <Body />
+          <HotelItemListContext.Consumer>
+            {({ lastUpdated, update }) => {
+              return (
+                <>
+                  <Header lastUpdated={lastUpdated} update={update} />
+                  <Body lastUpdated={lastUpdated} />
+                </>
+              );
+            }}
+          </HotelItemListContext.Consumer>
         </div>
       </HotelItemListContext.Provider>
     );

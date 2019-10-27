@@ -2,7 +2,17 @@ import React from "react";
 
 class HotelInfoReview extends React.Component {
   render() {
-    return <div>HotelInfoReview</div>;
+    const { name, comment, positive } = this.props.review;
+
+    console.log("positive:", positive);
+
+    return (
+      <li>
+        <div>{positive ? "+" : "-"}</div>
+        <div>{name}</div>
+        <div>{comment}</div>
+      </li>
+    );
   }
 }
 

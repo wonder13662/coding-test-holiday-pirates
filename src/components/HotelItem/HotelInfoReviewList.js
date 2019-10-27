@@ -3,13 +3,12 @@ import HotelInfoReview from "./HotelInfoReview";
 
 class HotelInfoReviewList extends React.Component {
   render() {
-    return (
-      <div>
-        <h5>HotelInfoReviewList</h5>
-        <HotelInfoReview />
-        <HotelInfoReview />
-      </div>
-    );
+    const { reviews } = this.props;
+    const listReviews = reviews.map(review => (
+      <HotelInfoReview key={review.name} review={review} />
+    ));
+
+    return <ul>{listReviews}</ul>;
   }
 }
 

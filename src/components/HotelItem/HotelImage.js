@@ -1,10 +1,10 @@
 import React from "react";
 
-// TODO Fallback image, Loading prgress image
-
 class HotelImage extends React.Component {
+  // TODO Fallback image, Loading prgress image
   render() {
-    return <div>HotelImage</div>;
+    const { alt, imageUrl } = this.props;
+    return <img alt={alt} src={imageUrl}></img>;
   }
 }
 
