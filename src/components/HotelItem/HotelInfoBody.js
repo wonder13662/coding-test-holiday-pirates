@@ -22,9 +22,10 @@ class HotelInfoBody extends React.Component {
   toggleReview() {
     const { hasToggleReview, reviews } = this.state;
 
-    if (hasToggleReview && reviews.length === 0) {
+    if (!hasToggleReview && reviews.length === 0) {
       this.fetchMockReviews();
       // this.fetchReviews();
+      // TODO Reload review if last updating is n(10) minutes earlier
     }
 
     this.setState({ hasToggleReview: !hasToggleReview });
@@ -51,6 +52,10 @@ class HotelInfoBody extends React.Component {
     // TODO Change time format(German)
 
     const { hasToggleReview, reviews } = this.state;
+
+    console.log(
+      `HotelInfoBody.js / render / hasToggleReview:${hasToggleReview} / reviews:${reviews.length}`
+    );
 
     return (
       <div>
