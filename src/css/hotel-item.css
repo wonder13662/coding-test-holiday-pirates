@@ -1,0 +1,65 @@
+ul > li.hotel-item {
+  list-style-type: none;
+  padding-right: 40px;
+  margin-bottom: 40px;
+}
+
+ul > li.hotel-item > .hotel-item--overview {
+  color: white;
+  background-color: white;
+  display: flex;
+  flex-direction: row;
+}
+
+ul > li.hotel-item > .hotel-item--overview > .hotel-item--overview-image {
+  height: auto;
+  width: 40%;
+}
+
+ul > li.hotel-item > .hotel-item--overview > .hotel-item--overview-image > img {
+  border-radius: 5px 0 0 5px;
+  width: 100%;
+  height: 100%;
+  border-top: 1px solid #ababab;
+  border-left: 1px solid #ababab;
+  border-bottom: 1px solid #ababab;
+}
+
+ul
+  > li.hotel-item
+  > .hotel-item--overview
+  > .hotel-item--overview-image.review-opened
+  > img {
+  border-radius: 5px 0 0 0;
+  border-bottom: 0;
+}
+
+ul > li.hotel-item > .hotel-item--overview > .hotel-item--overview-info {
+  border-radius: 0 5px 5px 0;
+  color: gray;
+  background-color: white;
+  flex: auto;
+  padding: 30px 20px;
+  border-top: 1px solid #ababab;
+  border-right: 1px solid #ababab;
+  border-bottom: 1px solid #ababab;
+}
+
+ul
+  > li.hotel-item
+  > .hotel-item--overview
+  > .hotel-item--overview-info.review-opened {
+  border-radius: 0 5px 0 0;
+  border-bottom: 0;
+}
+
+ul > li.hotel-item > .hotel-item--reviews {
+  padding: 30px 20px;
+  border-radius: 0 0 5px 5px;
+  color: white;
+  background-color: #dadada;
+  border-left: 1px solid #ababab;
+  border-right: 1px solid #ababab;
+  border-bottom: 1px solid #ababab;
+  border-top: 1px solid #ababab;
+}

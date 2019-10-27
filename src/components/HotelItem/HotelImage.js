@@ -33,27 +33,27 @@ class HotelImage extends React.Component {
 
     let img = null;
     if (hasErrorOccurred) {
-      img = (
-        <div ref={this.imgRef}>
-          <Image alt={alt} src={FALLBACK_IMG_URL} size="small" rounded />
-        </div>
-      );
+      img = <img alt={alt} src={FALLBACK_IMG_URL} />;
     } else {
       img = (
-        <div ref={this.imgRef}>
-          <Image
-            alt={alt}
-            src={imageUrl}
-            size="small"
-            onError={this.handleOnError}
-            onLoad={this.handleOnLoaded}
-            rounded
-          />
-        </div>
+        <img
+          alt={alt}
+          src={FALLBACK_IMG_URL}
+          ref={this.imgRef}
+          onError={this.handleOnError}
+          onLoad={this.handleOnLoaded}
+        />
       );
     }
 
     return img;
+    /*
+    return (
+      <div className="hotel-info--image-box" ref={this.imgRef}>
+        {img}
+      </div>
+    );
+    */
   }
 }
 

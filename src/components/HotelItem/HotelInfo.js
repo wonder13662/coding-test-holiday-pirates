@@ -4,7 +4,7 @@ import HotelInfoBody from "./HotelInfoBody";
 
 class HotelInfo extends React.Component {
   render() {
-    const { hotelItem } = this.props;
+    const { hotelItem, toggleReviewBtn } = this.props;
     const { name, city, country, stars } = hotelItem;
 
     return (
@@ -15,7 +15,10 @@ class HotelInfo extends React.Component {
           country={country}
           stars={stars}
         />
-        <HotelInfoBody hotelItem={hotelItem} />
+        <HotelInfoBody
+          hotelItem={hotelItem}
+          toggleReviewBtn={toggleReviewBtn}
+        />
       </div>
     );
   }
