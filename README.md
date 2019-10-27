@@ -30,9 +30,8 @@ http://fake-hotel-api.herokuapp.com/
         - HotelInfo
           - HotelInfoHeader
           - HotelInfoBody
-            - HotelInfoDetail
-            - HotelInfoReviewList
-              - HotelInfoReview
+        - HotelInfoReviewList
+          - HotelInfoReview
 
 ## Using libraries
 
