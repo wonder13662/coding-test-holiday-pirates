@@ -141,7 +141,7 @@ ul
 }
 
 ul > li.hotel-item > .hotel-item--reviews {
-  padding: 30px 20px;
+  padding: 0;
   border-radius: 0 0 5px 5px;
   color: white;
   background-color: #dadada;
@@ -149,4 +149,88 @@ ul > li.hotel-item > .hotel-item--reviews {
   border-right: 1px solid #ababab;
   border-bottom: 1px solid #ababab;
   border-top: 1px solid #ababab;
+}
+
+ul > li.hotel-item > .hotel-item--reviews > ul {
+  padding: 0;
+}
+
+ul > li.hotel-item > .hotel-item--reviews > ul > li.review-box {
+  display: flex;
+  padding: 40px 30px;
+  border-bottom: 1px solid #ababab;
+}
+
+ul > li.hotel-item > .hotel-item--reviews > ul > li.review-box:last-child {
+  border-bottom: 0;
+}
+
+ul
+  > li.hotel-item
+  > .hotel-item--reviews
+  > ul
+  > li.review-box
+  > .positive-or-nagative {
+  width: 80px;
+  color: red;
+}
+
+ul
+  > li.hotel-item
+  > .hotel-item--reviews
+  > ul
+  > li.review-box
+  > .positive-or-nagative
+  > .sign {
+  border: 10px solid white;
+  background-color: white;
+  width: 40px;
+  height: 40px;
+  text-align: center;
+  border-radius: 20px;
+  font-size: 20px;
+  margin-left: 10px;
+}
+
+ul
+  > li.hotel-item
+  > .hotel-item--reviews
+  > ul
+  > li.review-box
+  > .positive-or-nagative
+  > .sign.positive {
+  color: green;
+}
+
+ul
+  > li.hotel-item
+  > .hotel-item--reviews
+  > ul
+  > li.review-box
+  > .author-n-comment {
+  flex: 1;
+  color: green;
+}
+
+ul
+  > li.hotel-item
+  > .hotel-item--reviews
+  > ul
+  > li.review-box
+  > .author-n-comment
+  > .author {
+  font-size: 18px;
+  padding-bottom: 10px;
+  color: black;
+}
+
+ul
+  > li.hotel-item
+  > .hotel-item--reviews
+  > ul
+  > li.review-box
+  > .author-n-comment
+  > .comment {
+  font-size: 14px;
+  color: #999999;
 }
