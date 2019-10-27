@@ -2,6 +2,7 @@ import React from "react";
 import ErrorBox from "./ErrorBox";
 import HotelItemList from "./HotelItemList";
 import fakeApi from "../../api/holiday-pirates-fake-api";
+import { Checkbox } from "semantic-ui-react";
 
 class HotelPageBody extends React.Component {
   constructor(props) {
@@ -9,13 +10,16 @@ class HotelPageBody extends React.Component {
     this.state = {
       timestampRequestHotelList: this.props.timestampRequestHotelList,
       hotelItemList: [],
-      errorMsg: ""
+      errorMsg: "",
+      checkedForceError: false
     };
 
     this.fetchHotelListForceError = this.fetchHotelListForceError.bind(this);
     this.fetchHotelListNoError = this.fetchHotelListNoError.bind(this);
     this.fetchHotelListRandom = this.fetchHotelListRandom.bind(this);
     this.fetchHotelList = this.fetchHotelList.bind(this);
+
+    this.handleForceErrorChange = this.handleForceErrorChange.bind(this);
   }
 
   fetchHotelListForceError() {
@@ -54,9 +58,13 @@ class HotelPageBody extends React.Component {
       });
   }
 
+  handleForceErrorChange(e) {
+    const { checkedForceError } = this.state;
+    this.setState({ checkedForceError: !checkedForceError });
+  }
+
   componentDidMount() {
     this.fetchHotelListRandom();
-    // this.fetchHotelListForceError();
   }
 
   componentDidUpdate(prevProps, prevState, snapshot) {
@@ -64,15 +72,26 @@ class HotelPageBody extends React.Component {
       prevProps.timestampRequestHotelList !==
       this.props.timestampRequestHotelList
     ) {
-      this.fetchHotelListRandom();
+      if (this.state.checkedForceError) {
+        this.fetchHotelListForceError();
+      } else {
+        this.fetchHotelListRandom();
+      }
     }
   }
 
   render() {
-    const { hotelItemList, errorMsg } = this.state;
+    const { hotelItemList, errorMsg, checkedForceError } = this.state;
 
     return (
       <div>
+        <div className="force-error-box">
+          <Checkbox
+            label="Force Error"
+            checked={checkedForceError}
+            onChange={this.handleForceErrorChange}
+          />
+        </div>
         {!!errorMsg ? <ErrorBox errorMsg={errorMsg} /> : null}
         <HotelItemList hotelItemList={hotelItemList} />
       </div>

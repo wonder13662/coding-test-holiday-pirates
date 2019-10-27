@@ -6,3 +6,9 @@
 .hotel-page .error-box {
   margin: 0 30px 30px 30px;
 }
+
+.hotel-page .force-error-box {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+}
