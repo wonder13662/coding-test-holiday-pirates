@@ -1,5 +1,11 @@
 # Holiday-pirates coding challenge
 
+## How to run this project?
+
+```
+$ npm run start
+```
+
 ## Implement search result list for hotels
 
 ## API endpoint
@@ -38,7 +44,3 @@ http://fake-hotel-api.herokuapp.com/
 - [Create react app](https://github.com/facebook/create-react-app)
 
 - [React Semantic UI](https://react.semantic-ui.com/usage)
-
-- [React Router](https://reacttraining.com/react-router/web/guides/quick-start)
-
-- [Testing Library](https://testing-library.com/)
