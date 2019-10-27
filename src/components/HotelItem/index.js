@@ -5,6 +5,9 @@ import HotelInfoReviewList from "./HotelInfoReviewList";
 import fakeApi from "../../api/holiday-pirates-fake-api";
 import "../../css/hotel-item.css";
 
+const CLASSNAME_REVIEW_OPENED = "review-opened";
+const CLASSNAME_REVIEW_CLOSED = "review-closed";
+
 class HotelItem extends React.Component {
   constructor(props) {
     super(props);
@@ -68,21 +71,17 @@ class HotelItem extends React.Component {
       </button>
     );
 
+    const classNameReview = isOpeningReview
+      ? CLASSNAME_REVIEW_OPENED
+      : CLASSNAME_REVIEW_CLOSED;
+
     return (
       <li className="hotel-item">
         <div className="hotel-item--overview">
-          <div
-            className={`hotel-item--overview-image ${
-              isOpeningReview ? "review-opened" : "review-closed"
-            }`}
-          >
+          <div className={`hotel-item--overview-image ${classNameReview}`}>
             <HotelImage alt={name} imageUrl={imageUrl} />
           </div>
-          <div
-            className={`hotel-item--overview-info ${
-              isOpeningReview ? "review-opened" : "review-closed"
-            }`}
-          >
+          <div className={`hotel-item--overview-info ${classNameReview}`}>
             <HotelInfo
               hotelItem={hotelItem}
               toggleReviewBtn={toggleReviewBtn}
