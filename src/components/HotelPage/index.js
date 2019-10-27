@@ -31,7 +31,7 @@ class HotelPage extends React.Component {
   render() {
     return (
       <HotelItemListContext.Provider value={this.state}>
-        <div>
+        <div className="hotel-page">
           <HotelItemListContext.Consumer>
             {({
               timestampRequestHotelList,

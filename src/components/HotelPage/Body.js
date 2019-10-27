@@ -36,19 +36,27 @@ class HotelPageBody extends React.Component {
       .fetchHotelList(option)
       .then(response => {
         updateTimestampResponseHotelList();
-        this.setState({ hotelItemList: response.data, errorMsg: "" });
+        let hotelItemList = [];
+        if (!!response && !!response.data) {
+          hotelItemList = response.data;
+        }
+        this.setState({ hotelItemList: hotelItemList, errorMsg: "" });
       })
       .catch(error => {
         updateTimestampResponseHotelList();
         this.setState({
           hotelItemList: [],
-          errorMsg: error.response.data.error
+          errorMsg:
+            !!error && !!error.response && !!error.response.data
+              ? error.response.data.error
+              : "An error occur"
         });
       });
   }
 
   componentDidMount() {
     this.fetchHotelListRandom();
+    // this.fetchHotelListForceError();
   }
 
   componentDidUpdate(prevProps, prevState, snapshot) {
