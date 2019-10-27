@@ -7,15 +7,23 @@ class HotelPage extends React.Component {
   constructor(props) {
     super(props);
 
-    this.updateHotelListVersion = () => {
+    this.updateTimestampRequestHotelList = () => {
       this.setState(state => ({
-        lastUpdated: Date.now()
+        timestampRequestHotelList: Date.now()
+      }));
+    };
+
+    this.updateTimestampResponseHotelList = () => {
+      this.setState(state => ({
+        timestampResponseHotelList: Date.now()
       }));
     };
 
     this.state = {
-      lastUpdated: Date.now(),
-      update: this.updateHotelListVersion
+      timestampRequestHotelList: Date.now(),
+      timestampResponseHotelList: Date.now(),
+      updateTimestampRequestHotelList: this.updateTimestampRequestHotelList,
+      updateTimestampResponseHotelList: this.updateTimestampResponseHotelList
     };
   }
 
@@ -25,11 +33,27 @@ class HotelPage extends React.Component {
         <div>
           <h3>HotelPage</h3>
           <HotelItemListContext.Consumer>
-            {({ lastUpdated, update }) => {
+            {({
+              timestampRequestHotelList,
+              timestampResponseHotelList,
+              updateTimestampRequestHotelList,
+              updateTimestampResponseHotelList
+            }) => {
               return (
                 <>
-                  <Header lastUpdated={lastUpdated} update={update} />
-                  <Body lastUpdated={lastUpdated} />
+                  <Header
+                    timestampRequestHotelList={timestampRequestHotelList}
+                    timestampResponseHotelList={timestampResponseHotelList}
+                    updateTimestampRequestHotelList={
+                      updateTimestampRequestHotelList
+                    }
+                  />
+                  <Body
+                    timestampRequestHotelList={timestampRequestHotelList}
+                    updateTimestampResponseHotelList={
+                      updateTimestampResponseHotelList
+                    }
+                  />
                 </>
               );
             }}

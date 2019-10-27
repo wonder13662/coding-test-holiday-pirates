@@ -7,7 +7,7 @@ class HotelPageBody extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      lastUpdated: this.props.lastUpdated,
+      timestampRequestHotelList: this.props.timestampRequestHotelList,
       hotelItemList: [],
       errorMsg: ""
     };
@@ -31,14 +31,17 @@ class HotelPageBody extends React.Component {
   }
 
   fetchHotelList(option) {
+    const { updateTimestampResponseHotelList } = this.props;
     fakeApi
       .fetchHotelList(option)
       .then(response => {
         console.log("response:", response);
+        updateTimestampResponseHotelList();
         this.setState({ hotelItemList: response.data, errorMsg: "" });
       })
       .catch(error => {
         console.log("error:", error.response.data.error); // Something failed!
+        updateTimestampResponseHotelList();
         this.setState({
           hotelItemList: [],
           errorMsg: error.response.data.error
@@ -51,18 +54,21 @@ class HotelPageBody extends React.Component {
   }
 
   componentDidUpdate(prevProps, prevState, snapshot) {
-    if (prevProps.lastUpdated !== this.props.lastUpdated) {
+    if (
+      prevProps.timestampRequestHotelList !==
+      this.props.timestampRequestHotelList
+    ) {
       this.fetchHotelListRandom();
     }
   }
 
   render() {
-    const { lastUpdated } = this.props;
+    const { timestampRequestHotelList } = this.props;
     const { hotelItemList, errorMsg } = this.state;
 
     return (
       <div>
-        <h3>HotelPageBody:{lastUpdated}</h3>
+        <h3>HotelPageBody:{timestampRequestHotelList}</h3>
         {!!errorMsg ? <ErrorBox errorMsg={errorMsg} /> : null}
         <HotelItemList hotelItemList={hotelItemList} />
       </div>
