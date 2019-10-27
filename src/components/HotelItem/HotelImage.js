@@ -1,5 +1,4 @@
 import React from "react";
-import { Image } from "semantic-ui-react";
 
 const FALLBACK_IMG_URL = "fallback-image.png"; // TODO Constant variable
 
