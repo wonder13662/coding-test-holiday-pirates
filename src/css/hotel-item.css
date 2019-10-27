@@ -53,6 +53,26 @@ ul
   border-bottom: 0;
 }
 
+ul
+  > li.hotel-item
+  > .hotel-item--overview
+  > .hotel-item--overview-info
+  .hotel-info--header {
+  position: relative;
+}
+
+ul
+  > li.hotel-item
+  > .hotel-item--overview
+  > .hotel-item--overview-info
+  .hotel-info--header
+  > .stars {
+  position: absolute;
+  right: 0;
+  top: 0;
+  padding: 10px;
+}
+
 ul > li.hotel-item > .hotel-item--reviews {
   padding: 30px 20px;
   border-radius: 0 0 5px 5px;
