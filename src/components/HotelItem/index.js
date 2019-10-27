@@ -37,7 +37,6 @@ class HotelItem extends React.Component {
     fakeApi
       .fetchReviews(this.props.hotelItem.id)
       .then(response => {
-        console.log("response:", response);
         this.setState({
           isOpeningReview: true,
           reviews: response.data,
@@ -45,7 +44,6 @@ class HotelItem extends React.Component {
         });
       })
       .catch(error => {
-        console.log("error:", error.response.data.error); // Something failed!
         this.setState({
           isOpeningReview: false,
           reviews: [],
