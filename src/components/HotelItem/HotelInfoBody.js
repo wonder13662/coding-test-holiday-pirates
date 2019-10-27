@@ -66,9 +66,7 @@ class HotelInfoBody extends React.Component {
           isOpeningReview={isOpeningReview}
           toggleReview={this.toggleReview}
         />
-        {isOpeningReview && reviews.length > 0 ? (
-          <HotelInfoReviewList reviews={reviews} />
-        ) : null}
+        {isOpeningReview ? <HotelInfoReviewList reviews={reviews} /> : null}
       </div>
     );
   }

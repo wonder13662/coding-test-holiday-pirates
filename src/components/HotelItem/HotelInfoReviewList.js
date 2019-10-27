@@ -8,7 +8,11 @@ class HotelInfoReviewList extends React.Component {
       <HotelInfoReview key={review.name} review={review} />
     ));
 
-    return <ul>{listReviews}</ul>;
+    return (
+      <>
+        {reviews.length === 0 ? <div>No reviews</div> : <ul>{listReviews}</ul>}
+      </>
+    );
   }
 }
 
