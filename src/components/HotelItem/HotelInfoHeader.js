@@ -7,7 +7,7 @@ const WHITE_STAR = "\u2606";
 class HotelInfoHeader extends React.Component {
   render() {
     const { name, city, country, stars, description } = this.props;
-    let starArr = [WHITE_STAR, WHITE_STAR, WHITE_STAR, WHITE_STAR, WHITE_STAR];
+    let starArr = new Array(5).fill(WHITE_STAR);
     for (let i = 0; i < stars; i++) {
       starArr[i] = BLACK_STAR;
     }
