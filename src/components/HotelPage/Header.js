@@ -2,6 +2,7 @@ import React from "react";
 import fakeApi from "../../api/holiday-pirates-fake-api";
 import { hotel_list } from "../../mockup/hotel-list";
 import { review_list } from "../../mockup/hotel-review-list";
+import { HotelItemListContext } from "./hotel-item-list-context";
 
 class HotelPageHeader extends React.Component {
   fetchSampleDatas() {
@@ -28,16 +29,40 @@ class HotelPageHeader extends React.Component {
     // this.fetchSampleDatas();
     console.log("hotel_list:", hotel_list);
     console.log("review_list:", review_list);
+
+    // lastUpdated: null,
+    // update: () => {}
   }
 
   render() {
     return (
-      <div>
-        <h3>HotelPageHeader</h3>
-        <button>Load Hotel</button>
-      </div>
+      <HotelItemListContext.Consumer>
+        {({ lastUpdated, update }) => {
+          return (
+            <div>
+              <h3>HotelPageHeader</h3>
+              <button onClick={update}>Load Hotel:{lastUpdated}</button>
+            </div>
+          );
+        }}
+      </HotelItemListContext.Consumer>
     );
   }
+
+  /*
+  render() {
+    return (
+      <HotelItemListContext.Consumer>
+        <div>
+          <h3>HotelPageHeader</h3>
+          {({ lastUpdated, update }) => (
+            <button onClick={update}>Load Hotel:{lastUpdated}</button>
+          )}
+        </div>
+      </HotelItemListContext.Consumer>
+    );
+  }
+  */
 }
 
 export default HotelPageHeader;
