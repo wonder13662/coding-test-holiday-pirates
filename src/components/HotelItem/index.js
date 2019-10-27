@@ -57,7 +57,6 @@ class HotelItem extends React.Component {
     const { hotelItem } = this.props;
     const { isToggleDisabled, isOpeningReview, reviews } = this.state;
     const { images, name } = hotelItem;
-    const imageUrl = images[0];
 
     // 1. Create Show reviews Button (Render prop)
     const toggleReviewBtn = isToggleDisabled ? (

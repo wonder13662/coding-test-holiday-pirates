@@ -1,6 +1,5 @@
 import React from "react";
 import moment from "moment";
-import { Header } from "semantic-ui-react";
 
 class HotelInfoBody extends React.Component {
   constructor(props) {
