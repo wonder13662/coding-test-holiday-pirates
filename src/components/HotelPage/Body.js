@@ -35,12 +35,10 @@ class HotelPageBody extends React.Component {
     fakeApi
       .fetchHotelList(option)
       .then(response => {
-        console.log("response:", response);
         updateTimestampResponseHotelList();
         this.setState({ hotelItemList: response.data, errorMsg: "" });
       })
       .catch(error => {
-        console.log("error:", error.response.data.error); // Something failed!
         updateTimestampResponseHotelList();
         this.setState({
           hotelItemList: [],

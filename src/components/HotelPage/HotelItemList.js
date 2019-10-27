@@ -11,7 +11,6 @@ class HotelItemList extends React.Component {
     ));
     return (
       <div>
-        <h3>HotelItemList:{hotelItemList.length}</h3>
         <ul>{listItems}</ul>
       </div>
     );
