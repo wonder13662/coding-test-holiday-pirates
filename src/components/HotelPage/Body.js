@@ -11,12 +11,28 @@ class HotelPageBody extends React.Component {
       hotelItemList: [],
       errorMsg: ""
     };
+
+    this.fetchHotelListForceError = this.fetchHotelListForceError.bind(this);
+    this.fetchHotelListNoError = this.fetchHotelListNoError.bind(this);
+    this.fetchHotelListRandom = this.fetchHotelListRandom.bind(this);
+    this.fetchHotelList = this.fetchHotelList.bind(this);
   }
 
-  fetchHotelList() {
+  fetchHotelListForceError() {
+    this.fetchHotelList({ force_error: true });
+  }
+
+  fetchHotelListNoError(count = 5, min_start = 5) {
+    this.fetchHotelList({ no_error: true, count: count, min_star: min_start });
+  }
+
+  fetchHotelListRandom(count = 5, min_start = 5) {
+    this.fetchHotelList({ count: count, min_star: min_start });
+  }
+
+  fetchHotelList(option) {
     fakeApi
-      // .fetchHotelList({ no_error: true, count: 5, min_star: 5 })
-      .fetchHotelList({ force_error: true })
+      .fetchHotelList(option)
       .then(response => {
         console.log("response:", response);
         this.setState({ hotelItemList: response.data, errorMsg: "" });
@@ -31,12 +47,12 @@ class HotelPageBody extends React.Component {
   }
 
   componentDidMount() {
-    this.fetchHotelList();
+    this.fetchHotelListRandom();
   }
 
   componentDidUpdate(prevProps, prevState, snapshot) {
     if (prevProps.lastUpdated !== this.props.lastUpdated) {
-      this.fetchHotelList();
+      this.fetchHotelListRandom();
     }
   }
 
