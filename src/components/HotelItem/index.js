@@ -68,8 +68,6 @@ class HotelItem extends React.Component {
       </button>
     );
 
-    // 2. Create Review list (Render prop)
-
     return (
       <li className="hotel-item">
         <div className="hotel-item--overview">
