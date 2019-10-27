@@ -3,9 +3,6 @@ import React from "react";
 class HotelInfoReview extends React.Component {
   render() {
     const { name, comment, positive } = this.props.review;
-
-    console.log("positive:", positive);
-
     return (
       <li>
         <div>{positive ? "+" : "-"}</div>

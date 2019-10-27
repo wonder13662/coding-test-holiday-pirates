@@ -5,7 +5,6 @@ import fakeApi from "../../api/holiday-pirates-fake-api";
 import { review_list } from "../../mockup/hotel-review-list";
 
 class HotelInfoBody extends React.Component {
-  // TODO When should it fetch review list?
   constructor(props) {
     super(props);
 
@@ -43,7 +42,6 @@ class HotelInfoBody extends React.Component {
   }
 
   fetchMockReviews() {
-    console.log("fetchMockReviews");
     this.setState({ reviews: review_list });
   }
 
@@ -52,10 +50,6 @@ class HotelInfoBody extends React.Component {
     // TODO Change time format(German)
 
     const { hasToggleReview, reviews } = this.state;
-
-    console.log(
-      `HotelInfoBody.js / render / hasToggleReview:${hasToggleReview} / reviews:${reviews.length}`
-    );
 
     return (
       <div>
