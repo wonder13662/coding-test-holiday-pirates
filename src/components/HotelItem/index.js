@@ -3,6 +3,7 @@ import HotelImage from "./HotelImage";
 import HotelInfo from "./HotelInfo";
 import HotelInfoReviewList from "./HotelInfoReviewList";
 import fakeApi from "../../api/holiday-pirates-fake-api";
+import { Button } from "semantic-ui-react";
 import "../../css/hotel-item.css";
 
 const CLASSNAME_REVIEW_OPENED = "review-opened";
@@ -60,13 +61,13 @@ class HotelItem extends React.Component {
 
     // 1. Create Show Review Button (Render prop)
     const toggleReviewBtn = isToggleDisabled ? (
-      <button onClick={this.toggleReview} disabled>
+      <Button color="blue" onClick={this.toggleReview} disabled>
         Show Review
-      </button>
+      </Button>
     ) : (
-      <button onClick={this.toggleReview}>
+      <Button color="blue" onClick={this.toggleReview}>
         {isOpeningReview ? "Close Review" : "Show Review"}
-      </button>
+      </Button>
     );
 
     const classNameReview = isOpeningReview
