@@ -99,6 +99,47 @@ ul
   padding: 10px;
 }
 
+ul
+  > li.hotel-item
+  > .hotel-item--overview
+  > .hotel-item--overview-info
+  .hotel-info--body {
+  display: flex;
+  flex-direction: row;
+}
+
+ul
+  > li.hotel-item
+  > .hotel-item--overview
+  > .hotel-item--overview-info
+  .hotel-info--body
+  > .toggle-btn-box {
+  flex-basis: 30%;
+}
+
+ul
+  > li.hotel-item
+  > .hotel-item--overview
+  > .hotel-item--overview-info
+  .hotel-info--body
+  > .price-n-period {
+  flex-basis: 70%;
+  position: relative;
+  text-align: right;
+}
+
+ul
+  > li.hotel-item
+  > .hotel-item--overview
+  > .hotel-item--overview-info
+  .hotel-info--body
+  > .price-n-period
+  > .price {
+  color: black;
+  font-size: 32px;
+  padding: 5px 0 10px 0;
+}
+
 ul > li.hotel-item > .hotel-item--reviews {
   padding: 30px 20px;
   border-radius: 0 0 5px 5px;
