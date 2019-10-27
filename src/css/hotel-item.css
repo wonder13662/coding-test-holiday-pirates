@@ -234,3 +234,10 @@ ul
   font-size: 14px;
   color: #999999;
 }
+
+ul > li.hotel-item > .hotel-item--reviews > .no-review {
+  text-align: center;
+  font-size: 18px;
+  padding: 30px;
+  color: #999999;
+}

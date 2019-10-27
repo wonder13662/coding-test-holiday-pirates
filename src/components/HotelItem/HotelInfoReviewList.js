@@ -10,7 +10,11 @@ class HotelInfoReviewList extends React.Component {
 
     return (
       <>
-        {reviews.length === 0 ? <div>No reviews</div> : <ul>{listReviews}</ul>}
+        {reviews.length === 0 ? (
+          <div className="no-review">No review</div>
+        ) : (
+          <ul>{listReviews}</ul>
+        )}
       </>
     );
   }
