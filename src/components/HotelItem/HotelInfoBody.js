@@ -2,7 +2,6 @@ import React from "react";
 import HotelInfoDetail from "./HotelInfoDetail";
 import HotelInfoReviewList from "./HotelInfoReviewList";
 import fakeApi from "../../api/holiday-pirates-fake-api";
-import { review_list } from "../../mockup/hotel-review-list";
 
 class HotelInfoBody extends React.Component {
   constructor(props) {
@@ -10,46 +9,51 @@ class HotelInfoBody extends React.Component {
 
     this.state = {
       reviews: [],
-      hasToggleReview: false
+      isOpeningReview: false,
+      isToggleDisabled: false
     };
 
     this.toggleReview = this.toggleReview.bind(this);
     this.fetchReviews = this.fetchReviews.bind(this);
-    this.fetchMockReviews = this.fetchMockReviews.bind(this);
   }
 
   toggleReview() {
-    const { hasToggleReview, reviews } = this.state;
+    const { isOpeningReview } = this.state;
 
-    if (!hasToggleReview && reviews.length === 0) {
-      this.fetchMockReviews();
-      // this.fetchReviews();
-      // TODO Reload review if last updating is n(10) minutes earlier
+    if (!isOpeningReview) {
+      this.fetchReviews();
+    } else {
+      this.setState({ isOpeningReview: false });
     }
-
-    this.setState({ hasToggleReview: !hasToggleReview });
   }
 
   fetchReviews() {
+    this.setState({ isToggleDisabled: true });
     fakeApi
       .fetchReviews(this.props.hotelItem.id)
       .then(response => {
         console.log("response:", response);
+        this.setState({
+          isOpeningReview: true,
+          reviews: response.data,
+          isToggleDisabled: false
+        });
       })
       .catch(error => {
         console.log("error:", error.response.data.error); // Something failed!
+        this.setState({
+          isOpeningReview: false,
+          reviews: [],
+          isToggleDisabled: false
+        });
       });
-  }
-
-  fetchMockReviews() {
-    this.setState({ reviews: review_list });
   }
 
   render() {
     const { description, price, date_end, date_start } = this.props.hotelItem;
     // TODO Change time format(German)
 
-    const { hasToggleReview, reviews } = this.state;
+    const { isOpeningReview, reviews, isToggleDisabled } = this.state;
 
     return (
       <div>
@@ -58,9 +62,11 @@ class HotelInfoBody extends React.Component {
           price={price}
           dateEnd={date_end}
           dateStart={date_start}
+          isToggleDisabled={isToggleDisabled}
+          isOpeningReview={isOpeningReview}
           toggleReview={this.toggleReview}
         />
-        {hasToggleReview && reviews.length > 0 ? (
+        {isOpeningReview && reviews.length > 0 ? (
           <HotelInfoReviewList reviews={reviews} />
         ) : null}
       </div>
