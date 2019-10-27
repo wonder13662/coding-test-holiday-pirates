@@ -38,7 +38,7 @@ class HotelImage extends React.Component {
       img = (
         <img
           alt={alt}
-          src={FALLBACK_IMG_URL}
+          src={imageUrl}
           ref={this.imgRef}
           onError={this.handleOnError}
           onLoad={this.handleOnLoaded}
@@ -47,13 +47,6 @@ class HotelImage extends React.Component {
     }
 
     return img;
-    /*
-    return (
-      <div className="hotel-info--image-box" ref={this.imgRef}>
-        {img}
-      </div>
-    );
-    */
   }
 }
 
