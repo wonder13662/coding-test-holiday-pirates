@@ -12,8 +12,7 @@ ul > li.hotel-item > .hotel-item--overview {
 }
 
 ul > li.hotel-item > .hotel-item--overview > .hotel-item--overview-image {
-  height: auto;
-  width: 40%;
+  flex-basis: 30%;
 }
 
 ul > li.hotel-item > .hotel-item--overview > .hotel-item--overview-image > img {
@@ -38,7 +37,7 @@ ul > li.hotel-item > .hotel-item--overview > .hotel-item--overview-info {
   border-radius: 0 5px 5px 0;
   color: gray;
   background-color: white;
-  flex: auto;
+  flex-basis: 70%;
   padding: 30px 20px;
   border-top: 1px solid #ababab;
   border-right: 1px solid #ababab;
@@ -59,6 +58,33 @@ ul
   > .hotel-item--overview-info
   .hotel-info--header {
   position: relative;
+}
+
+ul
+  > li.hotel-item
+  > .hotel-item--overview
+  > .hotel-item--overview-info
+  .hotel-info--header
+  > .hotel-name {
+  padding-bottom: 10px;
+}
+
+ul
+  > li.hotel-item
+  > .hotel-item--overview
+  > .hotel-item--overview-info
+  .hotel-info--header
+  > .hotel-location {
+  padding-bottom: 20px;
+}
+
+ul
+  > li.hotel-item
+  > .hotel-item--overview
+  > .hotel-item--overview-info
+  .hotel-info--header
+  > .hotel-desc {
+  padding-bottom: 30px;
 }
 
 ul
