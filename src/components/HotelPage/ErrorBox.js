@@ -2,7 +2,7 @@ import React from "react";
 
 class ErrorBox extends React.Component {
   render() {
-    return <div>ErrorBox</div>;
+    return <div>{this.props.errorMsg}</div>;
   }
 }
 
