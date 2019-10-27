@@ -37,6 +37,8 @@ class HotelPageBody extends React.Component {
 
       // 1. Fetch the data from the server
       // fetchHotelList();
+
+      // TODO Handling Error
     }
   }
 
