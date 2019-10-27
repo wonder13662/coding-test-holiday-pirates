@@ -1,6 +1,7 @@
 import React from "react";
 import Header from "./Header";
 import Body from "./Body";
+import "../../css/hotel-page.css";
 import { HotelItemListContext } from "./hotel-item-list-context";
 
 class HotelPage extends React.Component {
@@ -31,7 +32,6 @@ class HotelPage extends React.Component {
     return (
       <HotelItemListContext.Provider value={this.state}>
         <div>
-          <h3>HotelPage</h3>
           <HotelItemListContext.Consumer>
             {({
               timestampRequestHotelList,

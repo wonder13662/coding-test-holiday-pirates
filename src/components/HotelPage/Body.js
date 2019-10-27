@@ -63,12 +63,10 @@ class HotelPageBody extends React.Component {
   }
 
   render() {
-    const { timestampRequestHotelList } = this.props;
     const { hotelItemList, errorMsg } = this.state;
 
     return (
       <div>
-        <h3>HotelPageBody:{timestampRequestHotelList}</h3>
         {!!errorMsg ? <ErrorBox errorMsg={errorMsg} /> : null}
         <HotelItemList hotelItemList={hotelItemList} />
       </div>
