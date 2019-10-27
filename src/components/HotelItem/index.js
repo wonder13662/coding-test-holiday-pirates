@@ -78,7 +78,7 @@ class HotelItem extends React.Component {
       <li className="hotel-item">
         <div className="hotel-item--overview">
           <div className={`hotel-item--overview-image ${classNameReview}`}>
-            <HotelImage alt={name} imageUrl={imageUrl} />
+            <HotelImage alt={name} images={images} />
           </div>
           <div className={`hotel-item--overview-info ${classNameReview}`}>
             <HotelInfo

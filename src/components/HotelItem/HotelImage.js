@@ -7,7 +7,8 @@ class HotelImage extends React.Component {
     super(props);
     this.state = {
       hasErrorOccurred: false,
-      hasImgLoaded: false
+      hasImgLoaded: false,
+      imageUrl: props.images.shift()
     };
 
     this.imgRef = React.createRef();
@@ -17,18 +18,28 @@ class HotelImage extends React.Component {
   }
 
   handleOnError() {
-    this.setState({ hasErrorOccurred: true });
+    const { images } = this.props;
+    if (images.length > 0) {
+      this.setState({ imageUrl: images.shift() });
+    } else {
+      this.setState({ hasErrorOccurred: true });
+    }
   }
 
   handleOnLoaded() {
+    const { images } = this.props;
     if (this.imgRef.current.clientHeight < 100) {
-      this.setState({ hasImgLoaded: true, hasErrorOccurred: true });
+      if (images.length > 0) {
+        this.setState({ imageUrl: images.shift() });
+      } else {
+        this.setState({ hasImgLoaded: true, hasErrorOccurred: true });
+      }
     }
   }
 
   render() {
-    const { alt, imageUrl } = this.props;
-    const { hasErrorOccurred } = this.state;
+    const { alt } = this.props;
+    const { hasErrorOccurred, imageUrl } = this.state;
 
     let img = null;
     if (hasErrorOccurred) {
