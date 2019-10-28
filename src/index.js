@@ -1,7 +1,6 @@
 // https://reactjs.org/docs/javascript-environment-requirements.html
-import "core-js";
 import "react-app-polyfill/ie9";
-import "react-app-polyfill/ie11";
+import "core-js";
 import "raf/polyfill";
 import "regenerator-runtime/runtime";
 

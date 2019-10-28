@@ -2,13 +2,12 @@ import React from "react";
 import ErrorBox from "./ErrorBox";
 import HotelItemList from "./HotelItemList";
 import fakeApi from "../../api/holiday-pirates-fake-api";
-import { Checkbox } from "semantic-ui-react";
 
 class HotelPageBody extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      timestampRequestHotelList: this.props.timestampRequestHotelList,
+      timestampRequestHotelList: props.timestampRequestHotelList,
       hotelItemList: [],
       errorMsg: "",
       checkedForceError: false
@@ -86,11 +85,13 @@ class HotelPageBody extends React.Component {
     return (
       <div>
         <div className="force-error-box">
-          <Checkbox
-            label="Force Error"
+          <input
+            type="checkbox"
+            name="forceError"
             checked={checkedForceError}
             onChange={this.handleForceErrorChange}
           />
+          &nbsp;Force Error
         </div>
         {!!errorMsg ? <ErrorBox errorMsg={errorMsg} /> : null}
         <HotelItemList hotelItemList={hotelItemList} />
